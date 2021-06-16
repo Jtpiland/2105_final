@@ -40,5 +40,16 @@ RSpec.describe Train do
 
       expect(train1.cargo).to eq({car1 => 5, car2 => 10})
     end
+
+    it "can calculate it's weight" do
+      car1 = Car.new({type: 'Mail', weight: 5})
+      car2 = Car.new({type: 'Passengers', weight: 1})
+      train1 = Train.new({name: 'Thomas', type: 'Tank'})
+
+      train1.add_cars(car1, 5)
+      train1.add_cars(car2, 2)
+
+      expect(train1.weight).to eq(27)
+    end
   end
 end

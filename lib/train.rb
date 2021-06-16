@@ -20,4 +20,12 @@ class Train
     @car_count += number_of_cars
     @cargo[car] += number_of_cars
   end
+
+  def weight
+    weight = 0
+    @cargo.each do |car, number_of_cars|
+      weight += (car.weight * @cargo[car])
+    end
+    weight
+  end
 end
